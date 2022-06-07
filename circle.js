@@ -46,31 +46,26 @@ function hint () {
 
     var myPlacemark1 = new ymaps.Placemark([45.087746, 39.000888], {
         address: "Краснодар, ул. Московская д.111",
-        object: 
     }, {
         hintLayout: HintLayout
     });
 var myPlacemark2 = new ymaps.Placemark([45.072802, 39.016150], {
         address: "Краснодар, ул. Российская д.288",
-        object: 
     }, {
         hintLayout: HintLayout
     });
 var myPlacemark3 = new ymaps.Placemark([45.093314, 38.992686], {
         address: "Краснодар, ул. Автомобильная д.3",
-        object: 
     }, {
         hintLayout: HintLayout
     });
 var myPlacemark4 = new ymaps.Placemark([45.050806, 39.019905], {
         address: "Краснодар, ул. Весенняя д.10",
-        object: 
     }, {
         hintLayout: HintLayout
     });
 var myPlacemark5 = new ymaps.Placemark([45.013581, 39.063869], {
         address: "Краснодар, ул. Мочуги д.5 к.1",
-        object: 
     }, {
         hintLayout: HintLayout
     });
