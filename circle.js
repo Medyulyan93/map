@@ -1,3 +1,9 @@
+ymaps.ready(function(){
+    //тут ваш код
+
+ymaps.ready(hint);
+ymaps.ready(circle);
+
 var myMap = new ymaps.Map("map", {
             center: [45.035469, 38.975309],
             zoom: 10
@@ -6,8 +12,7 @@ var myMap = new ymaps.Map("map", {
         });
 
 
-ymaps.ready(hint);
-ymaps.ready(circle);
+
 //Рисуем метки на карте
 
 function hint () {
@@ -230,3 +235,4 @@ function circle() {
     myMap.geoObjects.add(myCircle4);
     myMap.geoObjects.add(myCircle5);
 };
+});
