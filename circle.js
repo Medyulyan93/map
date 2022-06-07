@@ -1,13 +1,87 @@
-ymaps.ready(init);
-
-function init() {
-    // Создаем карту.
-    var myMap = new ymaps.Map("map", {
+var myMap = new ymaps.Map("map", {
             center: [45.035469, 38.975309],
             zoom: 10
         }, {
             searchControlProvider: 'yandex#search'
         });
+
+
+ymaps.ready(hint);
+ymaps.ready(circle);
+//Рисуем метки на карте
+
+function hint () {
+    
+    // Создание макета содержимого хинта.
+    // Макет создается через фабрику макетов с помощью текстового шаблона.
+        HintLayout = ymaps.templateLayoutFactory.createClass( "<div class='my-hint'>" +
+            "<b>{{ properties.object }}</b><br />" +
+            "{{ properties.address }}" +
+            "</div>", {
+                // Определяем метод getShape, который
+                // будет возвращать размеры макета хинта.
+                // Это необходимо для того, чтобы хинт автоматически
+                // сдвигал позицию при выходе за пределы карты.
+                getShape: function () {
+                    var el = this.getElement(),
+                        result = null;
+                    if (el) {
+                        var firstChild = el.firstChild;
+                        result = new ymaps.shape.Rectangle(
+                            new ymaps.geometry.pixel.Rectangle([
+                                [0, 0],
+                                [firstChild.offsetWidth, firstChild.offsetHeight]
+                            ])
+                        );
+                    }
+                    return result;
+                }
+            }
+        );
+
+    var myPlacemark1 = new ymaps.Placemark([45.087746, 39.000888], {
+        address: "Краснодар, ул. Московская д.111",
+        object: "Центр современного искусства"
+    }, {
+        hintLayout: HintLayout
+    });
+var myPlacemark2 = new ymaps.Placemark([45.072802, 39.016150], {
+        address: "Краснодар, ул. Российская д.288",
+        object: "Центр современного искусства"
+    }, {
+        hintLayout: HintLayout
+    });
+var myPlacemark3 = new ymaps.Placemark([45.093314, 38.992686], {
+        address: "Краснодар, ул. Автомобильная д.3",
+        object: "Центр современного искусства"
+    }, {
+        hintLayout: HintLayout
+    });
+var myPlacemark4 = new ymaps.Placemark([45.050806, 39.019905], {
+        address: "Краснодар, ул. Весенняя д.10",
+        object: "Центр современного искусства"
+    }, {
+        hintLayout: HintLayout
+    });
+var myPlacemark5 = new ymaps.Placemark([45.013581, 39.063869], {
+        address: "Краснодар, ул. Мочуги д.5 к.1",
+        object: "Центр современного искусства"
+    }, {
+        hintLayout: HintLayout
+    });
+
+    myMap.geoObjects.add(myPlacemark1);
+myMap.geoObjects.add(myPlacemark2);
+myMap.geoObjects.add(myPlacemark3);
+myMap.geoObjects.add(myPlacemark4);
+myMap.geoObjects.add(myPlacemark5);
+};
+
+//Рисуем круги
+
+function circle() {
+    // Создаем карту.
+    
 
     // Создаем круг.
     // Московская 111
@@ -155,4 +229,4 @@ function init() {
     myMap.geoObjects.add(myCircle3);
     myMap.geoObjects.add(myCircle4);
     myMap.geoObjects.add(myCircle5);
-}
+};
